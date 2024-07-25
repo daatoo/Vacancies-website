@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Vacancy Detail</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .vacancy-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .vacancy-details {
+      margin-bottom: 20px;
+    }
+    .vacancy-details p {
+      margin: 5px 0;
+    }
+    .vacancy-image {
+      margin-bottom: 20px;
+    }
+    .vacancy-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="vacancy-title" th:text="${vacancy.title}">Vacancy Title</div>
+  <div class="vacancy-image">
+    <img th:src="@{/{path}(path=${vacancy.imagePath})}" alt="Vacancy Image">
+  </div>
+  <div class="vacancy-details">
+    <p><strong>Description:</strong> <span th:text="${vacancy.description}">Vacancy Description</span></p>
+    <p><strong>Location:</strong> <span th:text="${vacancy.location}">Location</span></p>
+    <p><strong>Job Type:</strong> <span th:text="${vacancy.jobType}">Job Type</span></p>
+    <p><strong>Company Name:</strong> <span th:text="${vacancy.companyName}">Company Name</span></p>
+    <p><strong>Salary:</strong> <span th:text="${vacancy.salary}">Salary</span></p>
+    <p><strong>Requirements:</strong> <span th:text="${vacancy.requirements}">Requirements</span></p>
+    <p><strong>Posted Date:</strong> <span th:text="${vacancy.postedDate}">Posted Date</span></p>
+    <p><strong>Expiry Date:</strong> <span th:text="${vacancy.expiryDate}">Expiry Date</span></p>
+    <p><strong>Contact Email:</strong> <span th:text="${vacancy.contactEmail}">Contact Email</span></p>
+  </div>
+  <a href="/vacancies" class="back-link">Back to List</a>
+</div>
+</body>
+</html>
